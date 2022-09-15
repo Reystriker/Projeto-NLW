@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* reset de aspectos pré-definidos */
+
+ul{
+    list-style: none;
+}
+/* reset dos aspectos da lista */
+
+body {
+    background-image: url(/assets/background.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+/* troca do background da página */
+
+body *{
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+/* set  da fonte das letras */
+
+header {
+    margin-top: 32px;
+    height: 120px;
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+    border-radius: 50%;
+    display: flex;
+    padding: 4px;
+
+    transition: transform .3s;
+    /* nome da transição (nesse caso transform) + o tempo que ela demorará a acontecer */
+}
+
+header div:hover{
+    transform: scale(1.1);
+    /* Quando passar o mouse em cima do elemento, ele aumentará de escala */
+}
+
+header div img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+main {
+    max-width: 580px;
+    width: 90%;
+    margin: 32px auto;
+    /* set da área de visualização */
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+    /* set do direcionamento das caixas dentro do main (praticamente tudo) */
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 13px; 
+}
+
+section div {
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2{
+    letter-spacing: -0.47px;
+}
+
+section p {
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+section ul {
+    display: flex;
+    /* a linha debaixo é responsável por jogar as caixas para a linha de baixo caso não haja espaço na linha inferior */
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+/* Necessário fazer o transition na seção de mesmo nome que o :hover */
+section ul li{
+    transition: transform .3s;
+}
+/* Aplicada à todas as listas*/
+
+section ul li:hover{
+    transform: scale(1.1);
+}
+
+.games-list img{
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channel-list img{
+    border-radius: 50%;
+    width: 70px;
+    border: 1px solid #443E54;
+}
+
+/* animation */
+
+header div{
+    animation: fromTop .7s .2s backwards;
+    /* função animation + nome da função pré-definida + tempo da animação + delay de animação + guardar as propriedades da animação até o tempo de delay ser concluído (backwards)*/
+}
+
+main section{
+    animation: fromBottom .7s backwards;
+}
+
+/* main pega o section do filho n° N*/
+/* escolher o filhos do elemento selecionado*/
+main section:nth-child(1){
+    animation-delay: 0;
+}
+
+main section:nth-child(2){
+    animation-delay: .2s;
+}
+
+main section:nth-child(3){
+    animation-delay: .4s;
+}
+
+/* nome da função + um nome que você desejar*/
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    /* posição que o elemento está -30px (Jogando o elemento pra cima) */
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* a posição atual do elemento sempre é 0*/
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    /* posição que o elemento está 30px (jogando o elemento pra baixo)*/
+    /* translate + eixo a ser mudado, nesse caso o eixo X*/
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    /* a posição atual do elemento sempre é 0*/
+}
+
+
